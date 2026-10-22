@@ -1,0 +1,37 @@
+.notFound {
+  width: min(100% - 48px, 1180px);
+  min-height: 65vh;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.eyebrow {
+  color: #75806f;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.notFound h1 {
+  max-width: 680px;
+  margin: 0 0 28px;
+  font-size: clamp(2.5rem, 7vw, 5.2rem);
+  letter-spacing: -0.07em;
+  line-height: 0.98;
+}
+
+.homeLink {
+  width: fit-content;
+  color: var(--accent-soft);
+  font-weight: 700;
+}
+
+.notFound {
+  color: var(--heading);
+}
+
+.eyebrow {
+  color: var(--accent-soft);
+}
