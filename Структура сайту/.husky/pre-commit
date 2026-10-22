@@ -1,1 +1,1 @@
-cd "$(dirname "$0")/../client" && npm run lint
+npm test
