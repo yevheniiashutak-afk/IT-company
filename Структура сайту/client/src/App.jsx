@@ -8,6 +8,7 @@ import CalculatorPage from "./pages/CalculatorPage.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
 import FaqPage from "./pages/FaqPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
+import NotFoundPage from "./pages/NotFoundPage.jsx";
 import ServiceDetails from "./pages/ServiceDetails.jsx";
 
 function SiteLayout() {
@@ -73,6 +74,7 @@ export default function App() {
         <Route path="calculator" element={<CalculatorPage />} />
         <Route path="faq" element={<FaqPage />} />
         <Route path="dashboard" element={<DashboardPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   );
