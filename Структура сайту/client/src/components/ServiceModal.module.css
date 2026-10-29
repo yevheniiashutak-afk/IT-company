@@ -1,0 +1,81 @@
+.backdrop {
+  position: fixed;
+  z-index: 40;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 24px;
+  background: rgb(5 7 16 / 78%);
+  backdrop-filter: blur(4px);
+}
+
+.dialog {
+  width: min(100%, 620px);
+  max-height: min(90vh, 760px);
+  overflow-y: auto;
+  padding: 32px clamp(24px, 6vw, 48px) 42px;
+  border-radius: 14px;
+  background: #fff;
+  color: #182033;
+  box-shadow: 0 28px 90px rgb(0 0 0 / 38%);
+}
+
+.back {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  margin: 0 0 32px;
+  padding: 0;
+  border: 1px solid #e3e7ef;
+  border-radius: 50%;
+  background: #f7f8fb;
+  color: #27334d;
+  cursor: pointer;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+.back:hover {
+  background: #edf0f7;
+}
+
+.eyebrow {
+  margin: 0 0 12px;
+  color: #6c5ce7;
+  font-size: 0.7rem;
+  font-weight: 750;
+  letter-spacing: 0.14em;
+}
+
+.dialog h2 {
+  margin: 0;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: clamp(1.8rem, 5vw, 2.7rem);
+  font-weight: 750;
+  letter-spacing: -0.05em;
+  line-height: 1.15;
+}
+
+.description {
+  margin: 20px 0 0;
+  color: #596275;
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+@media (max-width: 600px) {
+  .backdrop {
+    padding: 16px;
+  }
+
+  .dialog {
+    padding-top: 24px;
+    padding-bottom: 30px;
+  }
+
+  .back {
+    margin-bottom: 24px;
+  }
+}
