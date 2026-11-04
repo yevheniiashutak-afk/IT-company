@@ -1,3 +1,16 @@
 {
-  "private": true
+  "name": "it-company",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently -k -n client,server \"npm --prefix client run dev\" \"npm --prefix server run start\"",
+    "dev:client": "npm --prefix client run dev",
+    "dev:server": "npm --prefix server run start",
+    "build": "npm --prefix client run build",
+    "lint": "npm --prefix client run lint",
+    "prepare": "cd .. && husky \"Структура сайту/.husky\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2",
+    "husky": "^9.1.7"
+  }
 }

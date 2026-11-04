@@ -1,0 +1,84 @@
+.card {
+  display: grid;
+  gap: 19px;
+  padding: 29px;
+  border: 1px solid #e4e0f1;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 22px 55px #00000030;
+  color: #251f43;
+}
+
+.cardLabel {
+  margin: 0;
+  color: #6c5ce7;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field > span {
+  color: #37314f;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.field select {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 12px;
+  border: 1px solid #dedbea;
+  border-radius: 6px;
+  background: #fff;
+  color: #2d2747;
+  font-size: 0.75rem;
+}
+
+.field select:focus {
+  border-color: #6c5ce7;
+  outline: 3px solid #6c5ce72a;
+}
+
+.result {
+  display: grid;
+  gap: 9px;
+  margin-top: 2px;
+  padding: 18px;
+  border: 1px solid #e1dcfa;
+  border-radius: 7px;
+  background: #f6f4ff;
+}
+
+.result > span {
+  color: #6f6988;
+  font-size: 0.68rem;
+}
+
+.result strong {
+  color: #4d3dc4;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.7rem);
+  letter-spacing: -0.05em;
+}
+
+.result small,
+.disclaimer {
+  color: #777188;
+  font-size: 0.65rem;
+  line-height: 1.6;
+}
+
+.disclaimer {
+  margin: -8px 0 0;
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 23px;
+  }
+}

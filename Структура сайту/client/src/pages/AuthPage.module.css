@@ -1,0 +1,341 @@
+.backdrop {
+  position: fixed;
+  z-index: 30;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 24px;
+  background: #050710c9;
+  backdrop-filter: blur(6px);
+}
+
+.modal {
+  position: relative;
+  width: min(100%, 950px);
+  max-height: min(94vh, 850px);
+  display: grid;
+  grid-template-columns: 1.08fr 0.92fr;
+  overflow: auto;
+  border: 1px solid #e4e0f1;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 30px 100px #00000075;
+}
+
+.close {
+  position: absolute;
+  z-index: 2;
+  top: 16px;
+  right: 17px;
+  width: 33px;
+  height: 33px;
+  display: grid;
+  place-items: center;
+  border: 1px solid #e4e1f1;
+  border-radius: 50%;
+  background: #fff;
+  color: #342866;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.formSide {
+  padding: 34px clamp(27px, 5vw, 58px);
+  color: #241d46;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #241d46;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.brandMark {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #6c5ce7;
+  color: white;
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+
+.eyebrow {
+  margin: 31px 0 10px;
+  color: #6c5ce7;
+  font-size: 0.61rem;
+  font-weight: 750;
+  letter-spacing: 0.13em;
+}
+
+.formSide h1 {
+  margin: 0;
+  color: #201a3d;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: clamp(2rem, 4vw, 2.9rem);
+  font-weight: 650;
+  letter-spacing: -0.075em;
+  line-height: 1.03;
+}
+
+.formSide h1 span {
+  color: #6c5ce7;
+}
+
+.lead {
+  margin: 11px 0 18px;
+  color: #716c82;
+  font-size: 0.74rem;
+  line-height: 1.65;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.form > label:not(.consent),
+.passwordRow label {
+  margin: 9px 0 5px;
+  color: #352d54;
+  font-size: 0.66rem;
+  font-weight: 700;
+}
+
+.form input:not([type="checkbox"]) {
+  width: 100%;
+  min-height: 40px;
+  padding: 0 11px;
+  border: 1px solid #e3e0ef;
+  border-radius: 5px;
+  background: #fff;
+  color: #261f44;
+  font-size: 0.68rem;
+}
+
+.form input:not([type="checkbox"]):focus {
+  border-color: #6c5ce7;
+  outline: 2px solid #6c5ce733;
+}
+
+.form input::placeholder {
+  color: #a19bae;
+}
+
+.passwordRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 11px;
+}
+
+.passwordRow > div {
+  display: grid;
+}
+
+.passwordField {
+  position: relative;
+}
+
+.passwordField input {
+  padding-right: 39px !important;
+}
+
+.form .passwordToggle {
+  position: absolute;
+  top: 50%;
+  right: 7px;
+  width: 29px;
+  min-height: 29px;
+  display: grid;
+  place-items: center;
+  padding: 5px;
+  transform: translateY(-50%);
+  border: 0;
+  background: transparent;
+  color: #6c5ce7;
+  cursor: pointer;
+}
+
+.passwordToggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-block: 13px;
+  color: #716c82;
+  font-size: 0.6rem;
+  line-height: 1.5;
+}
+
+.consent input {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 1px 0 0;
+  accent-color: #6c5ce7;
+}
+
+.form > button[type="submit"] {
+  min-height: 43px;
+  border: 0;
+  border-radius: 5px;
+  background: #6c5ce7;
+  color: #fff;
+  cursor: pointer;
+  font-size: 0.71rem;
+  font-weight: 750;
+}
+
+.form > button[type="submit"]:hover {
+  background: #7c5cff;
+}
+
+.form > button[type="submit"] span {
+  margin-left: 9px;
+}
+
+.signIn {
+  margin: 11px 0 0;
+  color: #716c82;
+  font-size: 0.6rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.authToggle {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #6c5ce7;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 750;
+}
+
+.authToggle:hover {
+  color: #4d3dc4;
+}
+
+.visual {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+  padding: 32px;
+  border-left: 1px solid #e4e0f1;
+  background: radial-gradient(circle at center, #fff, #f3f0ff 68%);
+  color: #241d46;
+}
+
+.visual::before,
+.visual::after {
+  position: absolute;
+  width: 430px;
+  height: 430px;
+  border: 1px solid #6c5ce72b;
+  border-radius: 50%;
+  content: "";
+}
+
+.visual::before {
+  transform: scaleY(0.68) rotate(36deg);
+}
+
+.visual::after {
+  transform: scaleY(0.68) rotate(-36deg);
+}
+
+.visualEyebrow,
+.visualFoot {
+  z-index: 1;
+  color: #6f6597;
+  font-size: 0.55rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+}
+
+.visualCenter {
+  z-index: 1;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #6c5ce755;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 15px 45px #38268114;
+}
+
+.visualCenter > span {
+  color: #6c5ce7;
+  font-family: Georgia, serif;
+  font-size: 5.7rem;
+  font-style: italic;
+  line-height: 0.82;
+}
+
+.visualCenter small {
+  margin-top: 10px;
+  color: #746b99;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.visualQuote {
+  z-index: 1;
+  align-self: flex-start;
+  color: #28204d;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: 1.18rem;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.5;
+}
+
+@media (max-width: 760px) {
+  .backdrop {
+    padding: 14px;
+  }
+
+  .modal {
+    width: min(100%, 540px);
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    display: none;
+  }
+
+  .formSide {
+    padding: 30px clamp(24px, 7vw, 45px);
+  }
+
+  .eyebrow {
+    margin-top: 25px;
+  }
+}

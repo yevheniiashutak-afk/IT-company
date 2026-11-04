@@ -1,0 +1,221 @@
+.header {
+  position: relative;
+  z-index: 5;
+  border-bottom: 1px solid #e2e6dd;
+  background: rgb(249 250 247 / 90%);
+}
+
+.inner {
+  width: min(100% - 56px, 1220px);
+  height: 82px;
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: Manrope, sans-serif;
+  font-size: 1.22rem;
+  font-weight: 800;
+  letter-spacing: -0.07em;
+}
+
+.brandMark {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #b9ec79;
+  color: #23311f;
+  font-family: Georgia, serif;
+  font-size: 1.55rem;
+  font-style: italic;
+  line-height: 1;
+}
+
+.brandAccent {
+  color: #6e9660;
+}
+
+.navigation,
+.actions {
+  display: flex;
+  align-items: center;
+}
+
+.navigation {
+  gap: clamp(18px, 3vw, 38px);
+  color: #71796f;
+  font-size: 0.82rem;
+}
+
+.navigation a {
+  transition: color 160ms ease;
+}
+
+.navigation a:hover,
+.navigation .active {
+  color: #263524;
+}
+
+.actions {
+  gap: 20px;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.login:hover {
+  color: #5a8348;
+}
+
+.contactButton {
+  min-height: 42px;
+  padding: 0 15px;
+  border: 0;
+  border-radius: 6px;
+  background: #263326;
+  color: #f7f8f4;
+  cursor: pointer;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.contactButton:hover {
+  transform: translateY(-1px);
+  background: #40563d;
+}
+
+.contactButton span {
+  margin-left: 9px;
+  color: #b9ec79;
+}
+
+.loginButton {
+  padding: 8px 2px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.loginButton:hover {
+  color: var(--accent-soft);
+}
+
+.contactButton {
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+@media (max-width: 790px) {
+  .inner {
+    width: min(100% - 36px, 650px);
+    height: auto;
+    min-height: 72px;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    padding-block: 14px;
+  }
+
+  .navigation {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    gap: 12px;
+    padding-top: 8px;
+    border-top: 1px solid #e8eae5;
+    font-size: 0.76rem;
+  }
+
+  .actions {
+    gap: 12px;
+    font-size: 0.76rem;
+  }
+
+  .contactButton {
+    min-height: 38px;
+    padding-inline: 11px;
+  }
+}
+
+.header {
+  border-bottom-color: var(--border);
+  background: rgb(11 14 20 / 94%);
+}
+
+.brand {
+  color: var(--heading);
+}
+
+.brandMark {
+  background: var(--accent);
+  color: #fff;
+}
+
+.brandAccent,
+.navigation a:hover,
+.navigation .active,
+.login:hover {
+  color: var(--accent-soft);
+}
+
+.navigation {
+  color: var(--text);
+}
+
+.actions {
+  gap: 14px;
+  color: var(--text);
+}
+
+.consultButton {
+  min-height: 40px;
+  padding: 0 13px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.76rem;
+}
+
+.consultButton:hover {
+  border-color: var(--accent);
+  color: var(--heading);
+}
+
+.contactButton {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding-inline: 14px;
+  background: var(--accent);
+  color: white;
+}
+
+.contactButton:hover {
+  background: var(--accent-bright);
+}
+
+.contactButton span {
+  margin: 0;
+  color: white;
+}
+
+@media (max-width: 790px) {
+  .navigation {
+    border-top-color: var(--border);
+  }
+}

@@ -1,0 +1,875 @@
+.dashboard {
+  --ink: #eff3ed;
+  min-height: 730px;
+  display: grid;
+  grid-template-columns: 238px minmax(0, 1fr);
+  background: #f1f3ef;
+  color: #253027;
+}
+
+.sidebar {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 27px 17px 20px;
+  background: #202a22;
+  color: #e9eee7;
+}
+
+.sidebarBrand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 9px 33px;
+  font-family: Manrope, sans-serif;
+  font-size: 0.98rem;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+}
+
+.brandMark {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #b9ec79;
+  color: #23311f;
+  font-family: Georgia, serif;
+  font-size: 1.35rem;
+  font-style: italic;
+}
+
+.sidebarPro {
+  display: block;
+  margin-top: 2px;
+  color: #98a393;
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.5rem;
+  letter-spacing: 0.16em;
+}
+
+.menuLabel {
+  margin: 0 10px 11px;
+  color: #859184;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.menu {
+  display: grid;
+  gap: 5px;
+}
+
+.menu a {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 11px;
+  border-radius: 5px;
+  color: #b4beb1;
+  font-size: 0.73rem;
+  transition:
+    color 150ms ease,
+    background 150ms ease;
+}
+
+.menu a > span {
+  width: 18px;
+  color: #9eaa99;
+  text-align: center;
+}
+
+.menu a:hover,
+.menu .menuActive {
+  background: #344235;
+  color: #f0f5ed;
+}
+
+.menu .menuActive > span {
+  color: #b9ec79;
+}
+
+.helpCard {
+  margin-top: auto;
+  padding: 15px;
+  border: 1px solid #3a493b;
+  border-radius: 6px;
+  background: #29352a;
+}
+
+.helpIcon {
+  width: 23px;
+  height: 23px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 13px;
+  border-radius: 50%;
+  background: #435542;
+  color: #c7eea1;
+  font-size: 0.72rem;
+}
+
+.helpCard strong {
+  font-size: 0.72rem;
+}
+
+.helpCard p {
+  margin: 5px 0 12px;
+  color: #a4b09f;
+  font-size: 0.65rem;
+}
+
+.helpCard a {
+  color: #c6ee9e;
+  font-size: 0.65rem;
+}
+
+.logout {
+  margin: 21px 9px 0;
+  color: #a4afa1;
+  font-size: 0.68rem;
+}
+
+.content {
+  min-width: 0;
+  padding: 0 clamp(22px, 4vw, 52px) 38px;
+}
+
+.topbar {
+  min-height: 69px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  border-bottom: 1px solid #dfe3dc;
+  color: #697367;
+  font-size: 0.7rem;
+}
+
+.breadcrumb {
+  color: #9aa195;
+}
+
+.slash {
+  margin-inline: 9px;
+  color: #bdc3ba;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2c352d;
+}
+
+.notification {
+  position: relative;
+  margin-right: 8px;
+  color: #64705f;
+  font-size: 1.1rem;
+}
+
+.notification i {
+  position: absolute;
+  top: 1px;
+  right: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #86b260;
+}
+
+.userAvatar {
+  width: 31px;
+  height: 31px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #dce8d2;
+  color: #537246;
+  font-size: 0.59rem;
+  font-weight: 750;
+}
+
+.userName {
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.userName small {
+  display: block;
+  margin-top: 3px;
+  color: #899186;
+  font-size: 0.57rem;
+  font-weight: 400;
+}
+
+.userArrow {
+  color: #8a9386;
+}
+
+.welcome {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  padding-block: 35px 24px;
+}
+
+.date,
+.metricLabel,
+.planTag {
+  margin: 0;
+  color: #7b8578;
+  font-size: 0.58rem;
+  font-weight: 750;
+  letter-spacing: 0.12em;
+}
+
+.welcome h1 {
+  margin: 9px 0 5px;
+  font-family: Manrope, sans-serif;
+  font-size: clamp(1.65rem, 3vw, 2.2rem);
+  font-weight: 650;
+  letter-spacing: -0.065em;
+}
+
+.welcome h1 span {
+  color: #8ba66f;
+  font-size: 0.76em;
+}
+
+.welcome p:last-child {
+  margin: 0;
+  color: #778075;
+  font-size: 0.74rem;
+}
+
+.supportButton {
+  min-height: 38px;
+  display: inline-flex;
+  align-items: center;
+  gap: 13px;
+  padding-inline: 12px;
+  border: 1px solid #d7ddd3;
+  border-radius: 5px;
+  color: #485545;
+  font-size: 0.67rem;
+  font-weight: 650;
+}
+
+.supportButton:hover {
+  border-color: #9cb58a;
+  background: #f8faf6;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+
+.metric {
+  position: relative;
+  min-height: 134px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 18px;
+  border: 1px solid #e0e4dd;
+  border-radius: 6px;
+  background: #fafbf9;
+}
+
+.metric strong {
+  margin-top: 13px;
+  font-family: Manrope, sans-serif;
+  font-size: 1.8rem;
+  font-weight: 650;
+  letter-spacing: -0.06em;
+}
+
+.metric:nth-child(3) strong {
+  font-size: 1.5rem;
+}
+
+.metricNote {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 5px;
+  color: #7c8579;
+  font-size: 0.61rem;
+}
+
+.greenDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #78a65e;
+}
+
+.metricIcon {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  font-size: 0.88rem;
+}
+
+.iconGreen {
+  background: #eaf2e4;
+  color: #60814c;
+}
+.iconBlue {
+  background: #e6edf0;
+  color: #66828e;
+}
+.iconYellow {
+  background: #f4f0df;
+  color: #998446;
+}
+
+.operations {
+  margin-top: 25px;
+  padding: 20px 20px 5px;
+  border: 1px solid #e0e4dd;
+  border-radius: 6px;
+  background: #fafbf9;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 17px;
+}
+
+.sectionHeader h2 {
+  margin: 0;
+  font-family: Manrope, sans-serif;
+  font-size: 0.97rem;
+  letter-spacing: -0.03em;
+}
+
+.sectionHeader p {
+  margin: 5px 0 0;
+  color: #828a7f;
+  font-size: 0.65rem;
+}
+
+.sectionHeader a {
+  color: #5a7e49;
+  font-size: 0.65rem;
+  font-weight: 700;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.operations table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.operations th {
+  padding: 11px 10px;
+  border-block: 1px solid #e9ece6;
+  color: #8a9287;
+  font-size: 0.54rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+}
+
+.operations td {
+  padding: 13px 10px;
+  border-bottom: 1px solid #edf0eb;
+  color: #788074;
+  font-size: 0.65rem;
+}
+
+.operations tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.operations .operationName,
+.operations .amount {
+  color: #303a31;
+  font-weight: 650;
+}
+
+.statusActive,
+.statusDone {
+  display: inline-block;
+  padding: 5px 8px;
+  border-radius: 12px;
+  font-size: 0.56rem;
+}
+
+.statusActive {
+  background: #edf5e7;
+  color: #5d804a;
+}
+
+.statusDone {
+  background: #eef0ed;
+  color: #70786f;
+}
+
+.bottomCards {
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+  gap: 13px;
+  margin-top: 15px;
+}
+
+.planCard,
+.nextCard {
+  min-height: 151px;
+  padding: 17px;
+  border: 1px solid #e0e4dd;
+  border-radius: 6px;
+  background: #fafbf9;
+}
+
+.planCard > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.planStatus {
+  color: #63834f;
+  font-size: 0.53rem;
+  font-weight: 750;
+}
+
+.planCard h2,
+.nextCard h2 {
+  margin: 12px 0 4px;
+  font-family: Manrope, sans-serif;
+  font-size: 0.95rem;
+  letter-spacing: -0.03em;
+}
+
+.planCard p,
+.nextCard p {
+  margin: 0;
+  color: #80887d;
+  font-size: 0.6rem;
+}
+
+.planProgress {
+  height: 4px;
+  margin-top: 16px;
+  border-radius: 5px;
+  background: #e7ebe3;
+}
+
+.planProgress span {
+  width: 68%;
+  height: 100%;
+  display: block;
+  border-radius: inherit;
+  background: #91b575;
+}
+
+.planCard > small {
+  display: block;
+  margin-top: 7px;
+  color: #858d82;
+  font-size: 0.57rem;
+}
+
+.nextCard {
+  display: grid;
+  grid-template-columns: 32px 1fr 20px;
+  align-items: start;
+  gap: 12px;
+  background: #e9efe4;
+}
+
+.nextIcon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #f6f8f2;
+  color: #66874f;
+}
+
+.nextCard h2 {
+  margin-top: 9px;
+}
+
+.nextCard p {
+  max-width: 270px;
+  margin-top: 6px;
+  line-height: 1.55;
+}
+
+.nextCard > a {
+  color: #62814f;
+  font-weight: 750;
+}
+
+@media (max-width: 980px) {
+  .dashboard {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .content {
+    padding-inline: 23px;
+  }
+
+  .metrics {
+    gap: 8px;
+  }
+
+  .metric {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 720px) {
+  .dashboard {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    min-height: initial;
+    padding: 13px 18px;
+  }
+
+  .sidebarBrand {
+    padding: 0 0 12px;
+  }
+
+  .menuLabel,
+  .helpCard,
+  .logout {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+    overflow-x: auto;
+    gap: 5px;
+  }
+
+  .menu a {
+    min-height: 37px;
+    flex: 0 0 auto;
+    gap: 7px;
+    padding-inline: 9px;
+    font-size: 0.65rem;
+  }
+
+  .content {
+    padding-inline: 17px;
+  }
+
+  .welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .metric {
+    min-height: 112px;
+  }
+
+  .bottomCards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .topbar {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 10px;
+  }
+
+  .userName,
+  .userArrow {
+    display: none;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .operations {
+    padding-inline: 11px;
+  }
+
+  .operations th,
+  .operations td {
+    padding-inline: 7px;
+    font-size: 0.59rem;
+  }
+}
+
+.dashboard {
+  background: var(--page);
+  color: var(--heading);
+}
+
+.sidebar {
+  border-right: 1px solid var(--border);
+  background: #0d111a;
+  color: var(--heading);
+}
+
+.sidebarBrand {
+  color: var(--heading);
+}
+
+.brandMark {
+  background: var(--accent);
+  color: white;
+}
+
+.sidebarPro,
+.menuLabel {
+  color: var(--muted);
+}
+
+.menu a,
+.logout {
+  color: var(--text);
+}
+
+.menu a > span {
+  color: #8e98ad;
+}
+
+.menu a:hover,
+.menu .menuActive {
+  background: #282343;
+  color: white;
+}
+
+.menu .menuActive {
+  box-shadow: inset 3px 0 var(--accent-bright);
+}
+
+.menu .menuActive > span {
+  color: var(--accent-soft);
+}
+
+.helpCard {
+  border-color: #2d3548;
+  background: #121824;
+}
+
+.helpIcon {
+  background: #282343;
+  color: var(--accent-soft);
+}
+
+.helpCard strong {
+  color: var(--heading);
+}
+
+.helpCard p {
+  color: var(--text);
+}
+
+.helpCard a,
+.logout:hover {
+  color: var(--accent-soft);
+}
+
+.content {
+  background: var(--page);
+}
+
+.topbar {
+  border-bottom-color: var(--border);
+  color: var(--text);
+}
+
+.pageTitle {
+  color: var(--heading);
+  font-family: Manrope, sans-serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.user,
+.userName {
+  color: var(--heading);
+}
+
+.notification,
+.userArrow {
+  color: var(--text);
+}
+
+.userAvatar {
+  background: #282343;
+  color: #c2baff;
+}
+
+.userName small,
+.date,
+.welcome p:last-child,
+.metricLabel,
+.metricNote,
+.sectionHeader p,
+.operations td,
+.planCard p,
+.nextCard p,
+.planCard > small {
+  color: var(--text);
+}
+
+.welcome h1 {
+  color: var(--heading);
+}
+
+.welcome h1 span {
+  color: var(--accent-soft);
+}
+
+.supportButton {
+  border-color: var(--border);
+  color: var(--text);
+}
+
+.supportButton:hover {
+  border-color: var(--accent);
+  background: var(--surface);
+  color: var(--heading);
+}
+
+.metric,
+.operations,
+.planCard {
+  border-color: var(--border);
+  background: var(--surface);
+  color: var(--heading);
+}
+
+.metric:first-child {
+  border-color: #5547b5;
+  background: linear-gradient(125deg, #1a1d35, #121824 72%);
+}
+
+.metric strong {
+  color: var(--heading);
+  font-size: 2rem;
+}
+
+.metric:first-child strong {
+  color: #c3baff;
+  font-size: clamp(1.45rem, 2vw, 2rem);
+  white-space: nowrap;
+}
+
+.metric strong small {
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.metricIcon {
+  background: #282343;
+  color: var(--accent-soft);
+}
+
+.iconGreen,
+.iconBlue,
+.iconYellow {
+  background: #282343;
+  color: var(--accent-soft);
+}
+
+.greenDot {
+  background: #8f7dff;
+}
+
+.sectionHeader h2 {
+  color: var(--heading);
+}
+
+.sectionHeader a {
+  color: var(--accent-soft);
+}
+
+.operations th {
+  border-color: var(--border);
+  color: var(--muted);
+}
+
+.operations td {
+  border-bottom-color: #252e40;
+}
+
+.operations .operationName,
+.operations .amount {
+  color: #f2f4fa;
+}
+
+.statusActive {
+  background: #282343;
+  color: #c2baff;
+}
+
+.statusDone {
+  background: #202938;
+  color: #a0aec0;
+}
+
+.bottomCards {
+  color: var(--heading);
+}
+
+.planStatus {
+  color: var(--accent-soft);
+}
+
+.planProgress {
+  background: #2a3040;
+}
+
+.planProgress span {
+  background: var(--accent);
+}
+
+.nextCard {
+  border: 1px solid #38345d;
+  background: #15182a;
+  color: var(--heading);
+}
+
+.nextIcon {
+  background: #282343;
+  color: var(--accent-soft);
+}
+
+.nextCard > a {
+  color: var(--accent-soft);
+}
