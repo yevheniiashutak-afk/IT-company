@@ -1,0 +1,90 @@
+.page {
+  min-height: 70vh;
+  display: grid;
+  place-items: center;
+  padding: 72px 24px 96px;
+  background:
+    radial-gradient(ellipse at 50% 35%, rgb(108 92 231 / 15%), transparent 55%),
+    linear-gradient(180deg, #0b0e14 0%, #11172a 60%, #0b0e14 100%);
+  text-align: center;
+}
+
+.content {
+  width: min(100%, 620px);
+}
+
+.code {
+  margin: 0;
+  color: #a99cff;
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: clamp(8rem, 28vw, 16rem);
+  font-weight: 800;
+  letter-spacing: -0.1em;
+  line-height: 0.85;
+  text-shadow: 0 0 70px rgb(169 156 255 / 22%);
+}
+
+.content h1 {
+  margin: 30px 0 0;
+  color: var(--heading);
+  font-family: Manrope, "Segoe UI", sans-serif;
+  font-size: clamp(1.65rem, 5vw, 2.6rem);
+  font-weight: 750;
+  letter-spacing: -0.055em;
+  line-height: 1.15;
+}
+
+.description {
+  max-width: 440px;
+  margin: 16px auto 0;
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.homeLink {
+  min-height: 48px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+  padding: 0 22px;
+  border: 1px solid #a99cff;
+  border-radius: 6px;
+  background: #a99cff;
+  color: #11111b;
+  font-size: 0.82rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.homeLink:hover {
+  transform: translateY(-2px);
+  border-color: #c4baff;
+  background: #c4baff;
+}
+
+.homeLink:focus-visible {
+  outline: 3px solid var(--heading);
+  outline-offset: 4px;
+}
+
+.homeLink span {
+  font-size: 1.1rem;
+}
+
+@media (max-width: 520px) {
+  .page {
+    min-height: 65vh;
+    padding-inline: 18px;
+  }
+
+  .content h1 {
+    margin-top: 24px;
+  }
+}

@@ -1,1 +1,2 @@
-cd "$(dirname "$0")/../client" && npm run lint
+#!/usr/bin/env sh
+cd "$(dirname "$0")/.." && npm run lint

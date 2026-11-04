@@ -7,7 +7,7 @@
     "dev:server": "npm --prefix server run start",
     "build": "npm --prefix client run build",
     "lint": "npm --prefix client run lint",
-    "prepare": "cd .. && husky \"Структура сайту/.husky\""
+    "prepare": "husky"
   },
   "devDependencies": {
     "concurrently": "^9.1.2",
