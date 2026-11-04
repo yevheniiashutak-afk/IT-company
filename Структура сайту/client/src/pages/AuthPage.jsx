@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../hooks/useAuth.js";
 import styles from "./AuthPage.module.css";
 
 export default function RegistrationModal({
@@ -9,11 +10,46 @@ export default function RegistrationModal({
   isLogin = false,
 }) {
   const [showPassword, setShowPassword] = useState(false);
+  const [validationError, setValidationError] = useState(null);
+  const { login, register, loading, error } = useAuth();
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    localStorage.setItem("isLoggedIn", "true");
+    setValidationError(null);
+
+    const formData = new FormData(event.currentTarget);
+    const password = formData.get("password");
+    const credentials = {
+      email: formData.get("email"),
+      password,
+    };
+    let authData;
+
+    if (isLogin) {
+      try {
+        authData = await login(credentials);
+      } catch {
+        return;
+      }
+    } else {
+      if (password !== formData.get("confirmPassword")) {
+        setValidationError("Паролі не збігаються.");
+        return;
+      }
+
+      try {
+        authData = await register({ ...credentials, name: formData.get("name") });
+      } catch {
+        return;
+      }
+    }
+
+    const userData = authData?.user || {
+      name: authData?.name || formData.get("name") || credentials.email.split("@")[0],
+      email: authData?.email || credentials.email,
+    };
+    localStorage.setItem("user", JSON.stringify(userData));
     onAuthenticated();
     onClose();
     navigate("/dashboard");
@@ -122,8 +158,14 @@ export default function RegistrationModal({
                 <span>Погоджуюся з умовами використання та політикою конфіденційності.</span>
               </label>
             )}
-            <button type="submit">
-              {isLogin ? "Увійти" : "Зареєструватися"} <span aria-hidden="true">↗</span>
+            {(validationError || error) && (
+              <p className={styles.formError} role="alert">
+                {validationError || error}
+              </p>
+            )}
+            <button type="submit" disabled={loading}>
+              {loading ? "Зачекайте..." : isLogin ? "Увійти" : "Зареєструватися"}{" "}
+              {!loading && <span aria-hidden="true">↗</span>}
             </button>
             <p className={styles.signIn}>
               {isLogin ? "Ще не маєте акаунта?" : "Уже маєте акаунт?"}{" "}
