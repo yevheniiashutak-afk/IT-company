@@ -345,6 +345,20 @@
   background: #fafbf9;
 }
 
+.emptyState {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 4px 0 16px;
+}
+
+.emptyState p {
+  margin: 0;
+  color: var(--text);
+  font-size: 0.72rem;
+}
+
 .sectionHeader {
   display: flex;
   align-items: center;
@@ -613,6 +627,11 @@
   }
 
   .sectionHeader {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .emptyState {
     align-items: flex-start;
     flex-direction: column;
   }

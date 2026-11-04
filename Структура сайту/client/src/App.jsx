@@ -3,6 +3,7 @@ import { Outlet, Route, Routes, useLocation, useNavigate } from "react-router-do
 import ConsultationModal from "./components/ConsultationModal.jsx";
 import Footer from "./components/Footer.jsx";
 import Header from "./components/Navbar.jsx";
+import useAuth from "./hooks/useAuth.js";
 import RegistrationModal from "./pages/AuthPage.jsx";
 import CalculatorPage from "./pages/CalculatorPage.jsx";
 import DashboardPage from "./pages/DashboardPage.jsx";
@@ -13,7 +14,8 @@ import ServiceDetails from "./pages/ServiceDetails.jsx";
 
 function SiteLayout() {
   const [activeModal, setActiveModal] = useState(null);
-  const [isLoggedIn, setIsLoggedIn] = useState(() => localStorage.getItem("isLoggedIn") === "true");
+  const [isLoggedIn, setIsLoggedIn] = useState(() => Boolean(localStorage.getItem("token")));
+  const { logout } = useAuth();
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
@@ -38,7 +40,7 @@ function SiteLayout() {
         onRegister={() => openModal("registration")}
         isLoggedIn={isLoggedIn}
         onLogout={() => {
-          localStorage.removeItem("isLoggedIn");
+          logout();
           setIsLoggedIn(false);
           navigate("/");
         }}
