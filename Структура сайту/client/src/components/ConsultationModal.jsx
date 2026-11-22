@@ -1,6 +1,36 @@
+import { useState } from "react";
+import useFetch from "../hooks/useFetch.js";
 import styles from "./ConsultationModal.module.css";
 
 export default function ConsultationModal({ onClose }) {
+  const { request, loading, error } = useFetch();
+  const [success, setSuccess] = useState(false);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    setSuccess(false);
+    try {
+      await request({
+        url: "/consultation",
+        method: "POST",
+        data: {
+          name: formData.get("name"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          company: formData.get("company"),
+          message: formData.get("message"),
+        },
+      });
+      form.reset();
+      setSuccess(true);
+    } catch {
+      // The hook exposes the request error for display below the submit button.
+    }
+  };
+
   return (
     <div
       className={styles.backdrop}
@@ -26,7 +56,7 @@ export default function ConsultationModal({ onClose }) {
         <p className={styles.description}>
           Розкажіть коротко про свою задачу — ми зв’яжемося та підкажемо, з чого почати.
         </p>
-        <form className={styles.form} onSubmit={(event) => event.preventDefault()}>
+        <form className={styles.form} onSubmit={handleSubmit}>
           <label htmlFor="consult-name">Ваше ім’я</label>
           <input id="consult-name" name="name" autoComplete="name" placeholder="Ім’я" required />
           <label htmlFor="consult-email">Робочий email</label>
@@ -58,14 +88,25 @@ export default function ConsultationModal({ onClose }) {
           <label htmlFor="consult-topic">Повідомлення</label>
           <textarea
             id="consult-topic"
-            name="topic"
+            name="message"
             rows="3"
             placeholder="Коротко опишіть вашу задачу"
             required
           />
-          <button className={styles.submit} type="submit">
-            Відправити заявку <span aria-hidden="true">↗</span>
+          <button className={styles.submit} type="submit" disabled={loading}>
+            {loading ? "Надсилання..." : "Відправити заявку"}
+            {!loading && <span aria-hidden="true">↗</span>}
           </button>
+          {success && (
+            <p className={styles.successMessage} role="status">
+              Заявку успішно відправлено!
+            </p>
+          )}
+          {error && (
+            <p className={styles.errorMessage} role="alert">
+              {error}
+            </p>
+          )}
         </form>
       </section>
     </div>

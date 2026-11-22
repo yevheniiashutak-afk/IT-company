@@ -1,12 +1,6 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./DashboardPage.module.css";
-
-const transactions = [
-  ["17 жовт. 2026", "Оплата підписки", "AutoSoft Pro", "Активна", "₴ 1 490"],
-  ["14 жовт. 2026", "Автоматизація продажів", "Впровадження", "Завершено", "₴ 8 500"],
-  ["08 жовт. 2026", "Інтеграція CRM", "Додаткова послуга", "Завершено", "₴ 2 800"],
-  ["01 жовт. 2026", "Оплата підписки", "AutoSoft Pro", "Завершено", "₴ 1 490"],
-];
 
 const menuItems = [
   ["▦", "Огляд", true],
@@ -15,7 +9,43 @@ const menuItems = [
   ["⚙", "Налаштування", false],
 ];
 
+function getStoredUser() {
+  const storedUser = localStorage.getItem("user");
+  if (!storedUser) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(storedUser);
+  } catch (error) {
+    console.error("Не вдалося прочитати дані користувача з localStorage.", error);
+    return null;
+  }
+}
+
 export default function DashboardPage() {
+  const [user] = useState(getStoredUser);
+  const userName =
+    user?.name ||
+    [user?.firstName, user?.lastName].filter(Boolean).join(" ") ||
+    user?.email ||
+    "Користувач";
+  const initials = userName
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => [...part][0].toLocaleUpperCase("uk-UA"))
+    .join("");
+  const currentDate = new Intl.DateTimeFormat("uk-UA", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  })
+    .format(new Date())
+    .toLocaleUpperCase("uk-UA");
+
   return (
     <main className={styles.dashboard}>
       <aside className={styles.sidebar}>
@@ -53,9 +83,10 @@ export default function DashboardPage() {
             <span className={styles.notification} aria-label="Сповіщення">
               ♧<i />
             </span>
-            <span className={styles.userAvatar}>АК</span>
+            <span className={styles.userAvatar}>{initials}</span>
             <span className={styles.userName}>
-              Андрій Коваленко<small>Власник акаунта</small>
+              {userName}
+              <small>Користувач</small>
             </span>
             <span className={styles.userArrow} aria-hidden="true">
               ⌄
@@ -64,9 +95,9 @@ export default function DashboardPage() {
         </header>
         <div className={styles.welcome}>
           <div>
-            <p className={styles.date}>СУБОТА, 17 ЖОВТНЯ 2026</p>
+            <p className={styles.date}>{currentDate}</p>
             <h1>
-              Доброго дня, Андрію <span>✳</span>
+              Доброго дня, {userName} <span>✳</span>
             </h1>
             <p>Ось короткий огляд вашого облікового запису.</p>
           </div>
@@ -78,7 +109,7 @@ export default function DashboardPage() {
           <article className={styles.metric}>
             <span className={styles.metricLabel}>ДОСТУПНИЙ БАЛАНС</span>
             <strong>
-              24,850.00 <small>грн</small>
+              0.00 <small>грн</small>
             </strong>
             <span className={styles.metricNote}>
               <i className={styles.greenDot} />
@@ -88,14 +119,14 @@ export default function DashboardPage() {
           </article>
           <article className={styles.metric}>
             <span className={styles.metricLabel}>АКТИВНІ ПОСЛУГИ</span>
-            <strong>03</strong>
-            <span className={styles.metricNote}>Усі працюють</span>
+            <strong>0</strong>
+            <span className={styles.metricNote}>Послуг ще немає</span>
             <span className={`${styles.metricIcon} ${styles.iconBlue}`}>◷</span>
           </article>
           <article className={styles.metric}>
             <span className={styles.metricLabel}>ЗАВДАННЯ В РОБОТІ</span>
-            <strong>07</strong>
-            <span className={styles.metricNote}>2 очікують на вас</span>
+            <strong>0</strong>
+            <span className={styles.metricNote}>Завдань ще немає</span>
             <span className={`${styles.metricIcon} ${styles.iconYellow}`}>◷</span>
           </article>
         </div>
@@ -105,65 +136,13 @@ export default function DashboardPage() {
               <h2>Останні операції</h2>
               <p>Історія оплат і замовлених послуг</p>
             </div>
-            <a href="#transactions">
-              Переглянути всі <span aria-hidden="true">↗</span>
-            </a>
           </div>
-          <div className={styles.tableWrap}>
-            <table>
-              <thead>
-                <tr>
-                  <th>ДАТА</th>
-                  <th>ОПЕРАЦІЯ</th>
-                  <th>ДЕТАЛІ</th>
-                  <th>СТАТУС</th>
-                  <th>СУМА</th>
-                </tr>
-              </thead>
-              <tbody>
-                {transactions.map(([date, title, detail, status, amount]) => (
-                  <tr key={`${date}-${title}`}>
-                    <td>{date}</td>
-                    <td className={styles.operationName}>{title}</td>
-                    <td>{detail}</td>
-                    <td>
-                      <span
-                        className={status === "Активна" ? styles.statusActive : styles.statusDone}
-                      >
-                        {status}
-                      </span>
-                    </td>
-                    <td className={styles.amount}>{amount}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+          <div className={styles.emptyState}>
+            <p>У вас поки немає здійснених операцій або замовлених послуг.</p>
+            <Link className={styles.supportButton} to="/">
+              Обрати послуги <span aria-hidden="true">↗</span>
+            </Link>
           </div>
-        </section>
-        <section className={styles.bottomCards}>
-          <article className={styles.planCard}>
-            <div>
-              <span className={styles.planTag}>НАСТУПНИЙ ПЛАТІЖ</span>
-              <span className={styles.planStatus}>● ЗАПЛАНОВАНО</span>
-            </div>
-            <h2>₴ 1 490 · AutoSoft Pro</h2>
-            <p>Наступна оплата — 01 листопада 2026</p>
-            <div className={styles.planProgress}>
-              <span />
-            </div>
-            <small>Використано 68% доступних ресурсів</small>
-          </article>
-          <article className={styles.nextCard}>
-            <span className={styles.nextIcon}>✳</span>
-            <div>
-              <span className={styles.planTag}>НАСТУПНИЙ КРОК</span>
-              <h2>Завершіть налаштування профілю</h2>
-              <p>Додайте дані компанії, щоб отримати більше від AutoSoft.</p>
-            </div>
-            <a href="#profile" aria-label="Перейти до налаштувань">
-              ↗
-            </a>
-          </article>
         </section>
       </section>
     </main>
